@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Copyright (c) 2017-present, PFW Contributors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in
@@ -124,7 +124,7 @@ public class SlidingCameraBehaviour : MonoBehaviour
     List<TerrainMaterial> _terrainMaterials = null;
     [SerializeField]
     //Array as we now have multiple MicroSplats
-    private MicroSplatTerrain[] _microSplatTerrains = null;
+    private Terrain[] _microSplatTerrains = null;
 
 
     private void Awake()
@@ -136,11 +136,11 @@ public class SlidingCameraBehaviour : MonoBehaviour
 
     private void Start()
     {
-        List<MicroSplatTerrain> splatList = new List<MicroSplatTerrain>();
+        List<Terrain> splatList = new List<Terrain>();
 
         foreach (Terrain terrain in GameObject.FindObjectsOfType<Terrain>())
         {
-            splatList.AddRange(terrain.GetComponents<MicroSplatTerrain>());
+            splatList.AddRange(terrain.GetComponents<Terrain>());
         }
 
         if (splatList.Count > 0)
@@ -609,18 +609,18 @@ public class SlidingCameraBehaviour : MonoBehaviour
         {
             if (camAltitude < mat.MaxAltitude) 
             {
-                foreach (MicroSplatTerrain microSplate in _microSplatTerrains)
+                foreach (Terrain microSplate in _microSplatTerrains)
                 {
-                    if (microSplate.templateMaterial != mat.Material)
+                    if (microSplate.materialTemplate != mat.Material)
                     {
-                        microSplate.templateMaterial = mat.Material;
+                        microSplate.materialTemplate = mat.Material;
 
                         // In the inspector this is the "Debug/Keywords" field.
-                        microSplate.keywordSO = mat.Keywords;
+                        //microSplate.keywordSO = mat.Keywords;
                         // In the inspector this is the "Debug/Per Texture Data" field.
-                        microSplate.propData = mat.PerTextureData;
+                        //microSplate.propData = mat.PerTextureData;
 
-                        microSplate.Sync();
+                        microSplate.UpdateGIMaterials();// Sync();
                     }
                 }
                 

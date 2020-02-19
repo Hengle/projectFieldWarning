@@ -33,8 +33,8 @@ namespace PFW.Loading
 
             foreach (Terrain terrain in terrains)
             {
-                MicroSplatTerrain msTerrain = terrain.GetComponent<MicroSplatTerrain>();
-                msTerrain.Sync();
+                Terrain msTerrain = terrain.GetComponent<Terrain>();
+                msTerrain.UpdateGIMaterials();// Sync();
             }
 
             terrainData = new TerrainMap(terrains, scene);
