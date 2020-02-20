@@ -22,7 +22,7 @@ namespace PFW.Loading
     public class DontDestroyOnLoad : MonoBehaviour
     {
         // Tracks which object to keep (lower id -> object is newer)
-        private int _id = 0;
+        public int _id = 0;
 
         // When a duplicate is detected, do we erase the newer or older instance?
         [SerializeField]

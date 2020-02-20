@@ -34,7 +34,7 @@ namespace PFW.Loading
             foreach (Terrain terrain in terrains)
             {
                 Terrain msTerrain = terrain.GetComponent<Terrain>();
-                msTerrain.UpdateGIMaterials();// Sync();
+                //msTerrain.UpdateGIMaterials();// Sync();
             }
 
             terrainData = new TerrainMap(terrains, scene);

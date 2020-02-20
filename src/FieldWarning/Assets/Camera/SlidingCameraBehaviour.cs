@@ -613,14 +613,14 @@ public class SlidingCameraBehaviour : MonoBehaviour
                 {
                     if (microSplate.materialTemplate != mat.Material)
                     {
-                        microSplate.materialTemplate = mat.Material;
+                        //microSplate.materialTemplate = mat.Material;
 
                         // In the inspector this is the "Debug/Keywords" field.
                         //microSplate.keywordSO = mat.Keywords;
                         // In the inspector this is the "Debug/Per Texture Data" field.
                         //microSplate.propData = mat.PerTextureData;
 
-                        microSplate.UpdateGIMaterials();// Sync();
+                        //microSplate.UpdateGIMaterials();// Sync();
                     }
                 }
                 
